@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-compile.sh
+./compile.sh
 npm install --cwd www --prefix www
 cd pkg
 npm link
