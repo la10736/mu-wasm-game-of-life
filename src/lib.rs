@@ -1,11 +1,6 @@
 extern crate cfg_if;
 extern crate wasm_bindgen;
 
-mod utils;
-
-use cfg_if::cfg_if;
-use wasm_bindgen::prelude::*;
-
 cfg_if! {
     // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
     // allocator.
@@ -16,6 +11,12 @@ cfg_if! {
     }
 }
 
+mod utils;
+
+use cfg_if::cfg_if;
+use wasm_bindgen::prelude::*;
+
+
 #[wasm_bindgen]
 extern {
     fn alert(s: &str);
@@ -23,5 +24,6 @@ extern {
 
 #[wasm_bindgen]
 pub fn greet() {
-    alert("Hello, wasm-game-of-life!");
+    // Just because an IntelliJ-Rust's bug bother me....
+    unsafe { alert("Hello, wasm-game-of-life!"); }
 }
